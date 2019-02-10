@@ -1,0 +1,93 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Valentine's Day Card</title>
+
+	<link href="style.css" rel="stylesheet" text="text/css">
+	<link rel="icon" href="bg.jpg">
+</head>
+<body background="bg.jpg">
+<h1>Valentine's Day Card</h1>
+
+<div class="card" style="display: none;">
+	<div class="card-half">
+		<img class="center" id="memeImage"> 
+	</div>
+	<div class="card-half">
+		<p id="msg"></p>
+		<p class="to-from" id="toMsg"></p>
+		<p class="to-from" id="fromMsg"></p>
+	</div>
+</div>
+
+<div class="container">
+	<input class="input" type="text" id="message" placeholder="Enter a message">
+	<input class="input" type="text" id="to" placeholder="To:">
+	<input class="input" type="text" id="from" placeholder="From:">
+	<button class="btn" id="msg-btn" onclick="showMessage()">Display message</button>
+
+</div>
+
+<script>
+var memeImg = document.getElementById("memeImage");
+
+function showMessage() {
+	var message = document.getElementById("message").value;
+	document.getElementById("msg").innerHTML = message;
+	var to = document.getElementById("to").value;
+	document.getElementById("toMsg").innerHTML = to;
+	var from = document.getElementById("from").value;
+	document.getElementById("fromMsg").innerHTML = from;
+
+
+	getMeme();
+
+	document.getElementById("message").value = "";
+	document.getElementsByClassName("card")[0].style.display = '';
+
+}
+
+//This makes enter work
+document.getElementById("message")
+    .addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {			 //ascii for enter is 13
+        document.getElementById("msg-btn").click();
+    }
+});
+
+//
+var HttpClient = function() {
+    this.get = function(aUrl, aCallback) {
+        var anHttpRequest = new XMLHttpRequest();
+        anHttpRequest.onreadystatechange = function() { 
+            if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                aCallback(anHttpRequest.responseText);
+        }
+
+        anHttpRequest.open( "GET", aUrl, true );            
+        anHttpRequest.send( null );
+    }
+}
+
+function getMeme(){
+	var client = new HttpClient();
+
+	client.get('https://api.imgflip.com/get_memes', function(response) {
+	    // do something with the response
+	    let obj = JSON.parse(response); //make the JSON string into a JavaScript object
+	    let randomNum = Math.floor(Math.random() * 100); //random number between 0-100
+	    let randomMeme = obj.data.memes[randomNum]; //get a random meme
+	    // console.log(obj);
+	    // console.log(randomNum);
+	    // console.log(obj.data.memes[randomNum]);
+	    memeImage.src = randomMeme.url;
+	    memeImage.height = 200;
+	    memeImage.width = 300;
+	});
+}
+
+</script>
+</body>
+</html>

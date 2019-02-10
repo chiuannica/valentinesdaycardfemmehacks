@@ -1,0 +1,76 @@
+@font-face {
+  font-family: 'Josefin';
+  src: url(static/JosefinSlab-Light.ttf);
+}
+html{
+	font-family: "Josefin"
+}
+h1{
+	color:#BD5E7C ;
+	font-family: "Josefin";
+	font-size: 48pt;
+	text-align: center;
+}
+p{
+	font-size: 24pt;
+	color: white;
+}
+
+.center {
+	display:flex;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+input[type=text], select {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display:flex;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.btn{
+  background-color: #BD5E7C;
+  border: none;
+  color: white;
+  padding: 12px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border: 1px solid #BD5E7C;
+  border-radius: 4px;
+  display:flex;
+	margin-left:auto;
+	margin-right:auto;
+}
+.to-form{
+	font-size: 12pt;
+	text-align: right;
+}
+.card{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 0px;
+	box-sizing: border-box;
+	border: 2px solid #E297AF;
+	padding: 25px;
+	margin: 25px 50px;
+}
+.card-half{
+	border: 2px solid #BD5E7C;
+	background-color: #E297AF;
+	padding: 20px;
+}
+.card-half p{
+	text-align: center;
+	vertical-align: center;
+}
+
