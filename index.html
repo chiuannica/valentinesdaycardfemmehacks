@@ -15,16 +15,16 @@
 		<img class="center" id="memeImage"> 
 	</div>
 	<div class="card-half">
-		<p id="msg"></p>
-		<p class="to-from" id="toMsg"></p>
-		<p class="to-from" id="fromMsg"></p>
+		<p class="to-from" id="toMsg" style="float: left"></p><br>
+		<p id="msg" style="clear: both;"></p>
+		<p class="to-from" id="fromMsg" style="float: right"></p>
 	</div>
 </div>
 
 <div class="container">
-	<input class="input" type="text" id="message" placeholder="Enter a message">
 	<input class="input" type="text" id="to" placeholder="To:">
 	<input class="input" type="text" id="from" placeholder="From:">
+	<input class="input" type="text" id="message" placeholder="Enter a message">
 	<button class="btn" id="msg-btn" onclick="showMessage()">Display message</button>
 
 </div>
@@ -36,14 +36,15 @@ function showMessage() {
 	var message = document.getElementById("message").value;
 	document.getElementById("msg").innerHTML = message;
 	var to = document.getElementById("to").value;
-	document.getElementById("toMsg").innerHTML = to;
+	document.getElementById("toMsg").innerHTML = "To: " + to;
 	var from = document.getElementById("from").value;
-	document.getElementById("fromMsg").innerHTML = from;
-
+	document.getElementById("fromMsg").innerHTML = "From: " + from;
 
 	getMeme();
 
 	document.getElementById("message").value = "";
+	document.getElementById("to").value = "";
+	document.getElementById("from").value = "";
 	document.getElementsByClassName("card")[0].style.display = '';
 
 }
@@ -83,8 +84,8 @@ function getMeme(){
 	    // console.log(randomNum);
 	    // console.log(obj.data.memes[randomNum]);
 	    memeImage.src = randomMeme.url;
-	    memeImage.height = 200;
-	    memeImage.width = 300;
+	    memeImage.height = 250;
+	    memeImage.width = 350;
 	});
 }
 

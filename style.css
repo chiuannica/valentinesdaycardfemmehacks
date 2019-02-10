@@ -8,8 +8,10 @@ html{
 h1{
 	color:#BD5E7C ;
 	font-family: "Josefin";
-	font-size: 48pt;
+	font-size: 40px;
 	text-align: center;
+	margin: 0px 10px;
+
 }
 p{
 	font-size: 24pt;
@@ -62,7 +64,7 @@ input[type=text], select {
 	box-sizing: border-box;
 	border: 2px solid #E297AF;
 	padding: 25px;
-	margin: 25px 50px;
+	margin: 20px 50px;
 }
 .card-half{
 	border: 2px solid #BD5E7C;
